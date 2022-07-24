@@ -5,10 +5,19 @@ export default function Example5() {
 
   React.useEffect(() => {
     console.log("컴포넌트 디드 마운트");
+
+    return () => {
+      //  clean up
+      // componentWillMount
+    };
   }, []);
 
   React.useEffect(() => {
     console.log("컴포넌트 디드 마운트 & 디드 업데이트  by count ", count);
+
+    return () => {
+      console.log("cleanup by count", count);
+    };
   }, [count]);
   return (
     <div>
